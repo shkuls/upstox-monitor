@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function index() {
+export default function Watch() {
   return (
     <div>
-      Watchlist
+      watch
+
     </div>
   )
 }
