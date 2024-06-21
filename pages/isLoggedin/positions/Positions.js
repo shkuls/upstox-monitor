@@ -19,23 +19,29 @@ export default function Positions() {
         'Accept': 'application/json'
       }
     };
-    setInterval(()=>{
-      axios(config)
-.then((response) => {
-  setPositionData(response.data);
-})
-.catch((error) => {
-  console.log(error);
-});
+    // setInterval(()=>{
+      useEffect(()=>{
+
+        console.log("req sent")
+                axios(config)
+          .then((response) => {
+            setPositionData(response.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } , [])
       
-    } , 1900)
+      
+      
+    // } , 7200)
       
     
  
   
   
   return (
-    <div>
+    <div className='flex flex-col'>
      {PositionData.data?.map((stock)=>
     <HoldingCard props={stock} />)}
     </div>
