@@ -2,10 +2,10 @@ import React from 'react'
 
 
 export default function HoldingCard(stock) {
-    console.log(stock)
+    console.log(stock.props.company_name)
   return (
     <div>
-      hi
+    {JSON.stringify(stock.props.pnl)}
     </div>
   )
 }
