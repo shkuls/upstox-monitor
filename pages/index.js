@@ -9,17 +9,48 @@ export default function index() {
   
   const [isLoggedin , setLogin] = useState(false)
   const [accessToken , setaccess] = useState(null)
-      useEffect(()=>{
-        
-        axios.get("http://localhost:8000/getLogin")
-        .then((response)=>{
-          
-          if(response.data)
-            {setLogin(true)
-            setaccess(response.data)}
-          
-        })
-        .catch(error => console.error('Error:', error));
+  
+  useEffect(()=>{
+    const currentTime =new Date().getTime();
+    const getToken = () =>{
+      axios.get("https://stock-monitor-backend-theta.vercel.app/getLogin")
+              .then((response)=>{
+                
+                if(response.data)
+                  {
+                    const accessData = {
+                      access_token : response.data ,
+                      token_creation_time : currentTime ,
+                    }
+                    localStorage.setItem( 'accessData' , JSON.stringify(accessData))
+                    setaccess(response.data)
+                    setLogin(true)
+                }
+                
+              })
+              .catch(error => console.error('Error:', error));
+      
+    }
+        const accessData = JSON.parse(localStorage.getItem('accessData'));
+            if (accessData) {
+              if(currentTime - accessData.time > 3600000 ){
+                setaccess(accessData.access_token)
+                setLogin(true)
+
+              }
+              else{
+                getToken();
+              }
+
+            }
+            else{
+              getToken()
+              
+            }
+
+
+
+
 
       })
   return (

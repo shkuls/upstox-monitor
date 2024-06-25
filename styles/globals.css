@@ -23,8 +23,8 @@ a {
 }
 
 .headerButton{
-  margin : 10px;
-  
+    font-weight: 300;
+    margin:5px;
   border-radius: 62px;
 background: #5A298B;
 box-shadow:  4px 4px 8px #3d1c5f,

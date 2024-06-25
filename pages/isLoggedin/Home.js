@@ -11,11 +11,12 @@ export default function Home() {
   return (
     
     <div className="h-full ">
+      
       <div className='bg-[#5A298B] flex flex-row justify-around w-full m-auto h-'>
-        <button className="headerButton text-sm text-white px-5 py-3 tracking-widest" onClick={()=>{setActive("positions")}}>
+        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("positions")}}>
     Positions
         </button>
-        <button className="headerButton text-sm text-white px-5 py-3 tracking-widest" onClick={()=>{setActive("watchlist")}}>
+        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("watchlist")}}>
     Watchlist
         </button>
       </div>

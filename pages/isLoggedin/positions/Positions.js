@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useContext } from 'react'
 import { AccessContext } from '../..'
 
+import Link from 'next/link'
 
 
 export default function Positions() {
@@ -39,11 +40,29 @@ export default function Positions() {
     
  
   
-  
+  let portfolio=0;
+
+
+
   return (
+    <div className="flex flex-row">
     <div className='flex flex-col'>
-     {PositionData.data?.map((stock)=>
-    <HoldingCard props={stock} />)}
+     {PositionData.data?.map((stock)=>{
+      portfolio+=stock.pnl;
+      return (<HoldingCard props={stock} />)
+     }
+    )}
+    </div>
+      <div className="flex flex-col">
+        <span className='flex flex-col mt-10'>
+
+        <p className='text-center font-sm]'>Net P/L</p>
+        <p className={`text-sm m-auto ${portfolio >0 ?"text-green-600" : "text-red-600"}`}>{"₹"+portfolio}</p>
+        </span>
+        <Link className="bg-[#41246E] text-white w-full
+         h-[40px] p-2 rounded-md transition-all m-auto text-sm active:bg-[#986bdb] hover:bg-[#6c48a3] text-center" href="https://pro.upstox.com/" >Open Upstox</Link>
+      </div>
+      
     </div>
   )
 }
