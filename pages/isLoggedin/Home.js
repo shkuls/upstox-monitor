@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Positions from './positions/positions';
-import Watch from './watch/watch';
-import wave from "../../public/wave.svg"
+import Portfolio from './portfolio/Portfolio';
+import Holding from './holding/Holding';
 
 
 export default function Home() {
-  const [active , setActive] = useState("positions");
+  const [active , setActive] = useState("holding");
 
 
   return (
@@ -13,16 +12,16 @@ export default function Home() {
     <div className="h-full ">
       
       <div className='bg-[#5A298B] flex flex-row justify-around w-full m-auto h-'>
-        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("positions")}}>
-    Positions
+        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("holding")}}>
+    Holding
         </button>
-        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("watchlist")}}>
-    Watchlist
+        <button className="headerButton text-sm text-white p-3 tracking-widest" onClick={()=>{setActive("portfoliolist")}}>
+    Portfolio
         </button>
       </div>
      <div className="bg-white">
 
-      { active == "positions" ?<Positions/> : <Watch/>}
+      { active == "holding" ?<Holding/> : <Portfolio/>}
      </div>
       </div>
   );

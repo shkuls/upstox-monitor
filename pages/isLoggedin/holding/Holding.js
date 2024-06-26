@@ -7,14 +7,14 @@ import { AccessContext } from '../..'
 import Link from 'next/link'
 
 
-export default function Positions() {
+export default function Holding() {
     const token = useContext(AccessContext);
     
     const [PositionData , setPositionData] = useState("")
     let config = {
       method: 'get',
     maxBodyLength: Infinity,
-      url: 'https://api.upstox.com/v2/portfolio/long-term-holdings',
+      url: 'https://api.upstox.com/v2/pnl/long-term-holdings',
       headers: { 
         'Authorization' : `Bearer ${token}` , 
         'Accept': 'application/json'
@@ -40,7 +40,7 @@ export default function Positions() {
     
  
   
-  let portfolio=0;
+  let pnl=0;
 
 
 
@@ -48,7 +48,7 @@ export default function Positions() {
     <div className="flex flex-row">
     <div className='flex flex-col'>
      {PositionData.data?.map((stock)=>{
-      portfolio+=stock.pnl;
+      pnl+=stock.pnl;
       return (<HoldingCard props={stock} />)
      }
     )}
@@ -57,7 +57,7 @@ export default function Positions() {
         <span className='flex flex-col mt-10'>
 
         <p className='text-center font-sm]'>Net P/L</p>
-        <p className={`text-sm m-auto ${portfolio >0 ?"text-green-600" : "text-red-600"}`}>{"₹"+portfolio}</p>
+        <p className={`text-sm m-auto ${pnl >0 ?"text-green-600" : "text-red-600"}`}>{"₹"+pnl.toFixed(2)}</p>
         </span>
         <Link className="bg-[#41246E] text-white w-full
          h-[40px] p-2 rounded-md transition-all m-auto text-sm active:bg-[#986bdb] hover:bg-[#6c48a3] text-center" href="https://pro.upstox.com/" >Open Upstox</Link>

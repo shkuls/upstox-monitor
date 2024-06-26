@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Login() {
     const upstoxLogin = ()=>{
-        // chrome.tabs.create({ url: "https://stock-monitor-backend-theta.vercel.app/login" });
-         window.location.href="https://stock-monitor-backend-theta.vercel.app/login";
+        chrome.tabs.create({ url: "https://stock-monitor-backend-theta.vercel.app/login" });
+        //  window.location.href="https://stock-monitor-backend-theta.vercel.app/login";
     }
   return (
     <div className='h-[200px] flex'>
