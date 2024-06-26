@@ -33,7 +33,7 @@ export default function index() {
     }
         const accessData = JSON.parse(localStorage.getItem('accessData'));
             if (accessData) {
-              if((currentTime - accessData.token_creation_time)/1000 < 36000 ){
+              if((currentTime - accessData.token_creation_time)/1000 < 30000 ){
                 setaccess(accessData.access_token)
                 setLogin(true)
 

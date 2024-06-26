@@ -11,31 +11,37 @@ export default function Holding() {
     const token = useContext(AccessContext);
     
     const [PositionData , setPositionData] = useState("")
-    let config = {
-      method: 'get',
-    maxBodyLength: Infinity,
-      url: 'https://api.upstox.com/v2/pnl/long-term-holdings',
-      headers: { 
-        'Authorization' : `Bearer ${token}` , 
-        'Accept': 'application/json'
-      }
-    };
-    // setInterval(()=>{
-      useEffect(()=>{
 
-        console.log("req sent")
-                axios(config)
-          .then((response) => {
-            setPositionData(response.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+
+    
+      useEffect(()=>{
+        setInterval(()=>{
+
+
+
+          console.log("req sent")
+          let config = {
+            method: 'get',
+          maxBodyLength: Infinity,
+            url: 'https://api.upstox.com/v2/portfolio/long-term-holdings',
+            headers: { 
+              'Authorization' : `Bearer ${token}` , 
+              'Accept': 'application/json'
+            }
+          };
+            axios(config)
+            .then((response) => {
+              setPositionData(response.data);
+            })
+            .catch((error) => {
+              console.log(error);
+            });
+        } , 1810)
       } , [])
       
       
       
-    // } , 7200)
+    
       
     
  
@@ -46,6 +52,7 @@ export default function Holding() {
 
   return (
     <div className="flex flex-row">
+   
     <div className='flex flex-col'>
      {PositionData.data?.map((stock)=>{
       pnl+=stock.pnl;

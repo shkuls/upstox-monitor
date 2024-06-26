@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "NEXT-CHROME-STARTER",
-  "short_name": "N-C-S",
+  "name": "UPSTOX MONITOR",
+  "short_name": "UM",
   "version": "0.0.1",
   "description": "Next.js Chrome Extension Starter, Demo Example by ibnzUK. https://github.com/ibnzUK/next-chrome-starter",
   "icons": {
@@ -10,7 +10,9 @@
     "48": "/icons/icon48.png",
     "192": "/icons/icon192.png"
   },
-  "permissions": [],
+  "permissions": [
+    "storage"
+  ],
   "web_accessible_resources": [
     {
       "resources": ["index.html"],

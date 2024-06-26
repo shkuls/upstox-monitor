@@ -5,33 +5,33 @@ import axios from 'axios';
 
 
 export default function Portfolio() {
-  const token = useContext(AccessContext);
-  const [PositionData , setPositionData] = useState("")
-  let config = {
-    method: 'get',
-  maxBodyLength: Infinity,
-    url: 'https://api.upstox.com/v2/portfolio/long-term-holdings',
-    headers: { 
-      'Authorization' : `Bearer ${token}` , 
-      'Accept': 'application/json'
-    }
-  };
-  // setInterval(()=>{
-    useEffect(()=>{
+  // const token = useContext(AccessContext);
+  // const [PositionData , setPositionData] = useState("")
+  // let config = {
+  //   method: 'get',
+  // maxBodyLength: Infinity,
+  //   url: 'https://api.upstox.com/v2/portfolio/long-term-holdings',
+  //   headers: { 
+  //     'Authorization' : `Bearer ${token}` , 
+  //     'Accept': 'application/json'
+  //   }
+  // };
+  // // setInterval(()=>{
+  //   useEffect(()=>{
 
-      console.log("req sent")
-              axios(config)
-        .then((response) => {
-          setPositionData(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } , [])
+  //     console.log("req sent")
+  //       axios(config)
+  //       .then((response) => {
+  //         setPositionData(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   } , [])
     
     
     
-  // } , 7200)
+  // // } , 7200)
     
   
 
