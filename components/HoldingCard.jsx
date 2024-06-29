@@ -2,7 +2,6 @@ import React from 'react'
 
 
 export default function HoldingCard(stock) {
-    console.log(stock.props.company_name)
   return (
     <div className='border rounded-xl  m-2 w-3/4 p-3 flex flex-row justify-between'>
 <span className='flex flex-col'>

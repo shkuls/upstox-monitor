@@ -5,7 +5,7 @@ const BACKEND_HOST = process.env.NEXT_PUBLIC_BACKEND_HOST;
 export default function Login() {
     const upstoxLogin = ()=>{
         chrome.tabs.create({ url: `${BACKEND_HOST}/login` }); 
-      // window.location.href=`${BACKEND_HOST}/login`;//comment out for testing on localhost
+       //window.location.href=`${BACKEND_HOST}/login`;//comment out for testing on localhost
     }
   return (
     <div className='h-[200px] flex'>

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import HoldingCard from "../../../components/HoldingCard";
 import axios from "axios";
 import { useContext } from "react";
-import { AccessContext } from "../..";
+import index, { AccessContext } from "../..";
 import usePortfolio from "../../Hooks/usePortfolio";
 import Link from "next/link";
 
@@ -17,29 +17,33 @@ export default function Holding() {
     if (date.getHours < 16 && 8 < date.getHours ){
         setInterval(() => {
         
-            setPositionData(usePortfolio(token));
+            usePortfolio(token , setPositionData);
+            if(PositionData?.status != "success")
             setLoading(false)
          
       }, 1810);
     }
     else{
-      setPositionData(usePortfolio(token));
+      
+      usePortfolio(token , setPositionData);
+      if(PositionData?.status != "success")
             setLoading(false)
     }
   }, []);
-
+  
 
   let pnl = 0;
-
+  if(isLoading)
+    {return <p className="w-1/2 text-center m-auto">Loading... </p>}
+  else
   return (
     <div className="flex flex-row">
-      {isLoading ? <p className="m-auto">Loading...</p>
-      :<div className="flex flex-col">
-        {PositionData?.data.map((stock) => {
+      <div className="flex flex-col">
+        {PositionData?.data.map((stock , index) => {
           pnl += stock.pnl;
-          return <HoldingCard props={stock} />;
+          return <HoldingCard key={index} props={stock} />;
         })}
-      </div>}
+      </div>
       <div className="flex flex-col">
         <span className="flex flex-col mt-10">
           <p className="text-center font-sm]">Net P/L</p>
