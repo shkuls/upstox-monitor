@@ -32,7 +32,11 @@ FIRST, SETUP THE BACKEND USING THE INSTRUCTIONS GIVEN IN THE BACKEND REPOSITORY
    ```
    npm install
    ```
-   
+
+5. Setup a .env.local in the root folder. The file should look like this -
+   ```bash
+   NEXT_PUBLIC_BACKEND_HOST= <Host name of your backend host (eg. http://localhost:3000/ or https://stock-monitor-backend-theta.vercel.app)> 
+   ```
 
 
 ## Usage
