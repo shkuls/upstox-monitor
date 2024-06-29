@@ -16,7 +16,7 @@ export default function Portfolio() {
         setInterval(() => {
         
             usePortfolio(token , setPositionData);
-            if(PositionData.status != "success")
+            if(PositionData?.status != "success")
             setLoading(false)
          
       }, 1810);
@@ -24,7 +24,7 @@ export default function Portfolio() {
     else{
       
       usePortfolio(token , setPositionData);
-      if(PositionData.status != "success")
+      if(PositionData?.status != "success")
             setLoading(false)
     }
   }, []);
@@ -44,6 +44,7 @@ export default function Portfolio() {
   if(isLoading)
     return <p className="w-1/2 text-center m-auto">Loading...
       </p>
+    else
   return (
     <div >
     
