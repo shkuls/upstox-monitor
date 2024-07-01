@@ -21,7 +21,7 @@ FIRST, SETUP THE BACKEND USING THE INSTRUCTIONS GIVEN IN THE BACKEND REPOSITORY
 1. Clone this repository: 
 
    ```bash
-   git clone https://github.com/ibnzUK/next-chrome-starter.git
+   git clone [https://github.com/ibnzUK/next-chrome-starter.git](https://github.com/shkuls/upstox-monitor.git)
    ```
 2. Navigate to project directory: 
 
@@ -74,4 +74,7 @@ npm run dev
 
 
 ## Demo
+
+- Holdings ![Holdings](https://i.imgur.com/SZ0X2r0.png "Holding Image")
+- Portfolio ![Portfolio](https://i.imgur.com/BeF4Vnc.png "Portfolio Image")
 
