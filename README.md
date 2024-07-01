@@ -75,6 +75,10 @@ npm run dev
 
 ## Demo
 
-- Holdings ![Holdings](https://i.imgur.com/SZ0X2r0.png "Holding Image")
-- Portfolio ![Portfolio](https://i.imgur.com/BeF4Vnc.png "Portfolio Image")
+### Holdings
+
+![Holdings](https://i.imgur.com/SZ0X2r0.png "Holding Image")
+### Portfolio
+
+![Portfolio](https://i.imgur.com/BeF4Vnc.png "Portfolio Image")
 
