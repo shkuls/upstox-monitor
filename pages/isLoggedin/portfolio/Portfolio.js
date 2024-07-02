@@ -12,7 +12,7 @@ export default function Portfolio() {
 
   useEffect(() => {
     const date = new Date();
-    if (date.getHours < 16 && 8 < date.getHours ){
+    if (date.getHours() < 16 && 8 < date.getHours() ){
         setInterval(() => {
         
             usePortfolio(token , setPositionData);
